@@ -1,0 +1,31 @@
+version: '3'
+
+tasks:
+  clean:
+    desc: Clean
+    cmds:
+      - ./gradlew clean
+
+  build:
+    desc: Build
+    cmds:
+      - ./gradlew build package
+    sources:
+      - build.gradle.kts
+      - settings.gradle.kts
+      - ./*/build.gradle.kts
+      - ./*/src/**/*
+    generates:
+      - ./build/**/*
+      - ./*/build/**/*
+
+  dependencyUpdates:
+    desc: Dependency updates
+    cmds:
+      - ./gradlew --parallel dependencyUpdates
+
+  run:
+    desc: Run
+    deps: [ build ]
+    cmds:
+      - java -jar ntfsvc-client-app/build/libs/ntfsvc-client-app-*-capsule.jar {{.CLI_ARGS}}
