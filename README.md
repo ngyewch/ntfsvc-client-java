@@ -18,4 +18,4 @@ implementation("com.github.ngyewch.ntfsvc:ntfsvc-client:1.0.0")
 
 ## Usage
 
-See [ntfsvc-client-app/src/main/java/io/github/ngyewch/ntfsvc/client/app/Main.java]()
+See `ntfsvc-client-app/src/main/java/io/github/ngyewch/ntfsvc/client/app/Main.java`
